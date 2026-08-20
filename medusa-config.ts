@@ -81,8 +81,9 @@ module.exports = defineConfig({
       | "shared"
       | "worker"
       | "server",
+    // `port` is not a projectConfig key — `medusa start` reads PORT from the
+    // environment itself.
     http: {
-      port,
       storeCors: process.env.STORE_CORS || origins(storefrontUrl, publicUrl),
       adminCors: process.env.ADMIN_CORS || origins(publicUrl),
       authCors:
